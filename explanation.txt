@@ -1,0 +1,25 @@
+    Token Types:
+        The code defines three token types using an enumeration: NAME, PARENS, and BRACKETS. These token types represent different components of a declaration.
+
+    gettoken() Function:
+        This function is responsible for extracting tokens from the input. It skips any leading spaces or tabs and then reads characters to form tokens.
+        It recognizes different types of tokens, such as names, parentheses, and brackets.
+        The function returns the token type and stores the token value in the token array.
+
+    dcl() Function:
+        This function represents the entry point for parsing a declaration.
+        It handles the parsing of pointers by counting the number of consecutive * tokens.
+        It then calls the dirdcl() function, which handles the parsing of the direct declarator (name, function, or array).
+        After parsing the pointers, the function appends the appropriate description to the out array.
+
+    dirdcl() Function:
+        This function handles the parsing of the direct declarator, which is the name or an array/function declaration.
+        It first checks if the current token is a name and assigns it to the name variable.
+        Then, it continues to check for additional tokens (PARENS or BRACKETS) and appends the corresponding description to the out array.
+        For example, if it encounters [], it appends "array" and the size specified by the token to the out array.
+
+    main() Function:
+        This is the entry point of the program.
+        It reads input declarations, invokes the dcl() function to parse them, and prints the parsed information (name, description, and datatype).
+
+Overall, the code uses a recursive descent parsing approach to break down declarations into their constituent parts and convert them into human-readable descriptions. It recognizes names, pointers, arrays, and functions and generates the corresponding output for each declaration.
