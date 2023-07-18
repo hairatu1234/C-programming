@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .keyword {
+      color: blue;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <pre>
+        <code id="code">
+          #include <stdio.h>
+
+            
+            int addNumbers(int a, int b) {
+                return a + b;
+            }
+            
+          
+            int multiplyNumbers(int a, int b) {
+                return a * b;
+            }
+            
+            int main() {
+                int num1, num2;
+                
+                printf("Enter the first number: ");
+                scanf("%d", &num1);
+                
+                printf("Enter the second number: ");
+                scanf("%d", &num2);
+                
+                int sum = addNumbers(num1, num2);
+                int product = multiplyNumbers(num1, num2);
+                
+                printf("Sum: %d\n", sum);
+                printf("Product: %d\n", product);
+                
+                return 0;
+            }
+            
+        </code>
+    </pre>
+
+  <script>
+    // Function to highlight keywords
+    function highlightKeywords() {
+      const codeElement = document.getElementById('code');
+      const keywords = ['include', 'int', 'void', 'return', 'scanf', 'printf', 'main', 'if', 'else'];
+
+      const code = codeElement.textContent;
+      const regex = new RegExp('\\b(' + keywords.join('|') + ')\\b', 'g');
+      const highlightedCode = code.replace(regex, '<span class="keyword">$1</span>');
+
+      codeElement.innerHTML = highlightedCode;
+    }
+
+    // Call the highlightKeywords function on page load
+    window.onload = highlightKeywords;
+  </script>
+</body>
+
+</html>
